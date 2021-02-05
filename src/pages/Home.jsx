@@ -1,7 +1,8 @@
 import React from "react";
 import { Categories, PizzaBlock, SortPopup } from "../components";
 
-function Home() {
+function Home({items}) {
+  console.log(items)
   return (
     <div className="container">
       <div className="content__top">
