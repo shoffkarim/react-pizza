@@ -13,9 +13,10 @@ function App() {
   useEffect(() => {
     Axios.get("http://localhost:3000/db.json").then(({data}) => {
       setPizzas(data.pizzas);
+
     })
   }, [])
-
+  console.log(pizzas);
   return (
     <div className="wrapper">
       <Header/>
