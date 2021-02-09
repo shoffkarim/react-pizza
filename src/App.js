@@ -14,8 +14,8 @@ function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    Axios.get("http://localhost:3000/db.json").then(({data}) => {
-      dispatch(setPizzas(data.pizzas));
+    Axios.get("http://localhost:3001/pizzas").then(({data}) => {
+      dispatch(setPizzas(data));
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
