@@ -15,6 +15,7 @@ const sortItems = [
 function Home() {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
+  const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
 
   React.useEffect(() => {
     if(!items.length){
@@ -41,7 +42,10 @@ function Home() {
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
-        {items && items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
+        {isLoaded
+        ? items.map((obj) => <PizzaBlock key={obj.id}  isLoading={true} {...obj} />)
+        : Array(12).fill(<PizzaLoadingBlock/>)
+        }
       </div>
     </div>
   );
