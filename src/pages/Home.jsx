@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { Categories, PizzaBlock, SortPopup } from "../components";
+import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup } from "../components";
 import { setCategory } from "../redux/actions/filters";
 import { fetchPizzas } from "../redux/actions/pizzas";
 
