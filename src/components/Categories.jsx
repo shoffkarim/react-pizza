@@ -2,13 +2,20 @@ import React from 'react'
 import PropTypes from "prop-types";
 
 const Categories = React.memo(function Categories({items, activeCategory, onClickCategory}) {
-  
+
   return (
     <div className="categories">
       <ul>
-        <li className={activeCategory === null ? 'active' : ''} onClick={() => onClickCategory(null)}>Все</li>
-        {items && items.map((name, index) => (
-          <li className={activeCategory === index ? 'active' : ''} onClick={() => onClickCategory(index)} key={`${name}_${index}`}>{name}</li>
+        <li className={activeCategory === null ? 'active' : ''}
+          onClick={() => onClickCategory(null)}>
+          Все
+        </li>
+        {items &&
+          items.map((name, index) => (
+            <li className={activeCategory === index ? 'active' : ''}
+              onClick={() => onClickCategory(index)} key={`${name}_${index}`}>
+              {name}
+            </li>
         ))}
       </ul>
     </div>
@@ -16,8 +23,8 @@ const Categories = React.memo(function Categories({items, activeCategory, onClic
 })
 
 Categories.propTypes = {
-  activeCategory: PropTypes.number.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // activeCategory: PropTypes.oneOf([PropTypes.number, null]),
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClickCategory: PropTypes.func.isRequired,
 };
 
